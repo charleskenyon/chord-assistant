@@ -17,20 +17,25 @@ const removeInputNotesFromScale = curry(
     (scaleNotes || []).filter((scaleNote) => !inputNotes.includes(scaleNote))
 );
 
-const pickRandomNotes = (scaleNotes: string[]) =>
+const pickRandomNotes = curry((maxAddedNotes: number, scaleNotes: string[]) =>
   scaleNotes
     .sort(() => 0.5 - Math.random())
-    .slice(0, getRandomIndexBetweenZeroAndN(2) + 1);
+    .slice(0, getRandomIndexBetweenZeroAndN(maxAddedNotes) + 1)
+);
 
-export default function generateRandomNotes(noteIdentifiers: string[]) {
-  return pipe(getNotesFromNoteIdentifiers, (inputNotes: string[]) => {
-    return pipe(
-      findMatchingScales,
-      getRandomScale,
-      removeInputNotesFromScale(inputNotes) as (
-        scaleNotes: string[]
-      ) => string[],
-      pickRandomNotes
-    )(inputNotes);
-  })(noteIdentifiers);
-}
+const generateRandomNotes = curry(
+  (maxAddedNotes: number, noteIdentifiers: string[]) => {
+    return pipe(getNotesFromNoteIdentifiers, (inputNotes: string[]) => {
+      return pipe(
+        findMatchingScales,
+        getRandomScale,
+        removeInputNotesFromScale(inputNotes) as (
+          scaleNotes: string[]
+        ) => string[],
+        pickRandomNotes(maxAddedNotes)
+      )(inputNotes);
+    })(noteIdentifiers);
+  }
+);
+
+export default generateRandomNotes;

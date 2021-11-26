@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
   mode: 'none',
   entry: './src/index.ts',
+  target: ['web', 'es3'],
   module: {
     rules: [
       {
