@@ -7,7 +7,7 @@ import { getAverage, getRandomIndexBetweenZeroAndN } from './utils';
 import { NOTE_IDENTIFIER_MAP } from '../constants';
 import { NotesDictionary } from '../types';
 
-const getPotentialNoteIdentifiers = (randomNote: string) => {
+export const getPotentialNoteIdentifiers = (randomNote: string) => {
   return Object.keys(NOTE_IDENTIFIER_MAP).filter((noteIdentifier: string) => {
     return NOTE_IDENTIFIER_MAP[noteIdentifier] == randomNote;
   });

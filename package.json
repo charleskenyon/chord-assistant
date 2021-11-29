@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "ts-node --project ./tsconfig.json --files src/index.ts",
     "test": "jest --testTimeout=10000 --bail --verbose",
-    "build": "webpack",
-    "check:es3": "es-check es3 './dist/**/*.js'"
+    "build": "./build.sh"
   },
   "pre-commit": [
     "test"
@@ -20,6 +19,7 @@
     "@types/ramda": "^0.27.49",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
+    "deep-equal": "^2.0.5",
     "es-check": "^6.1.1",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",

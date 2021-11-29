@@ -1,3 +1,5 @@
+declare module 'deep-equal';
+
 declare let inlets: number;
 
 declare let outlets: number;

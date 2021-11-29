@@ -1,7 +1,9 @@
 import curry from 'ramda/src/curry';
 import { NotesDictionary } from '../types';
 
-const pickRandomVelocityFromVelocityRange = (noteVelocities: number[]) => {
+export const pickRandomVelocityFromVelocityRange = (
+  noteVelocities: number[]
+) => {
   const min = Math.min(...noteVelocities);
   const max = Math.max(...noteVelocities);
   return Math.floor(Math.random() * (max - min + 1) + min);
