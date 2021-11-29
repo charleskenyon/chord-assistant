@@ -2,9 +2,11 @@
 
 ### Node.js, Typescript, Ramda, Webpack, Jest
 
-Repo generates es3 compatible chord-assistant.js script to be used by a javascript module within [Max for Live](https://www.ableton.com/en/live/max-for-live/).
+Repo generates ES3 compatible chord-assistant.js script to be used by a Javascript module within [Max for Live](https://www.ableton.com/en/live/max-for-live/).
 
 **Max** is a visual programming language that can be used to create music production software plugins. Max for Live is specifically tailored for use with **Ableton Live** (Digital Audio Workstation).
+
+The use of [Javascript](https://docs.cycling74.com/max7/tutorials/javascriptchapter01) within a Max for Live project allows the use of complex programming logic that would be difficult to achieve with Max alone.
 
 ## Overview
 
@@ -12,6 +14,6 @@ The aim of this project was to randomly generate harmonic chords based on a set 
 
 ___
 
-'**./build.sh**' will compile and bundle the project code into an es3 compatible script that can be used by Max.
+**./build.sh** compiles and bundles the project code into an ES3 compatible script that can be used by Max.
 
 ![Screenshot](max-chord-assistant.jpg)
