@@ -3,7 +3,7 @@ import map from 'ramda/src/map';
 import pipe from 'ramda/src/pipe';
 import filterNoteIdentifiers from './filter-note-identifiers';
 import createUpdatedNotesDictionary from './create-updated-notes-dictionary';
-import { getAverage, getRandomIndexBetweenZeroAndN } from './utils';
+import { getRandomIndexBetweenZeroAndN } from './utils';
 import { NOTE_IDENTIFIER_MAP } from '../constants';
 import { NotesDictionary } from '../types';
 
@@ -14,11 +14,23 @@ export const getPotentialNoteIdentifiers = (randomNote: string) => {
 };
 
 const embellishChord = curry(
-  (notesDictionary: NotesDictionary, randomNotes: string[]) => {
-    const noteIdentifierAverage = getAverage(Object.keys(notesDictionary));
+  (
+    notesDictionary: NotesDictionary,
+    selectionRange: number,
+    randomNotes: string[]
+  ) => {
+    const noteIdentifierNumbers = Object.keys(notesDictionary).map(Number);
+    const noteIdentifierLowest = Math.min(...noteIdentifierNumbers);
+    const noteIdentifierHighest = Math.max(...noteIdentifierNumbers);
     return pipe(
       map(getPotentialNoteIdentifiers),
-      map(filterNoteIdentifiers(noteIdentifierAverage)) as () => string[][],
+      map(
+        filterNoteIdentifiers(
+          noteIdentifierLowest,
+          noteIdentifierHighest,
+          selectionRange
+        )
+      ) as () => string[][],
       map(
         (noteIdentifiers: string[]) =>
           noteIdentifiers[getRandomIndexBetweenZeroAndN(noteIdentifiers.length)]

@@ -22,7 +22,7 @@ const list = (...input: number[]) => {
         generateRandomNotes(getMaxGlobalVar(2, 'maxAddedNotes')) as (
           noteIdentifiers: string[]
         ) => string[],
-        embellishChord(notesDictionary)
+        embellishChord(notesDictionary, getMaxGlobalVar(7, 'selectionRange'))
       )(noteIdentifiers);
     },
     toPairs,

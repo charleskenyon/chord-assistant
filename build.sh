@@ -9,11 +9,10 @@ npm run test || post_and_exit "tests failed"
 
 webpack || post_and_exit "webpack build failed"
 
-es-check es3 "./dist/**/*.js" || post_and_exit "test es3 failed"
-
 tsc --outFile ./dist/max-globals.js ./src/max-globals.ts ./typings/index.d.ts || post_and_exit "failed to compile max-globals.ts"
 
+es-check es3 "./dist/**/*.js" || post_and_exit "test es3 failed"
+
 cd "$(dirname $0)/dist"
-ls
 cat max-globals.js main.js >> chord-assistant.js
 rm max-globals.js main.js 
