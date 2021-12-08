@@ -14,17 +14,17 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new TerserPlugin({
-  //       terserOptions: {
-  //         mangle: false,
-  //         keep_fnames: true
-  //       }
-  //     })
-  //   ],
-  // },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          mangle: false,
+          keep_fnames: true
+        }
+      })
+    ],
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
