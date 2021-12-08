@@ -32,4 +32,6 @@ const list = (...input: number[]) => {
   )(input);
 };
 
+list(60, 100, 63, 100, 67, 90);
+
 export default list;

@@ -5,9 +5,9 @@ import filterNoteIdentifiers from './filter-note-identifiers';
 import createUpdatedNotesDictionary from './create-updated-notes-dictionary';
 import { getRandomIndexBetweenZeroAndN } from './utils';
 import { NOTE_IDENTIFIER_MAP } from '../constants';
-import { NotesDictionary } from '../types';
+import { NotesDictionary, ScaleNote } from '../types';
 
-export const getPotentialNoteIdentifiers = (randomNote: string) => {
+export const getPotentialNoteIdentifiers = (randomNote: ScaleNote) => {
   return Object.keys(NOTE_IDENTIFIER_MAP).filter((noteIdentifier: string) => {
     return NOTE_IDENTIFIER_MAP[noteIdentifier] == randomNote;
   });
@@ -17,7 +17,7 @@ const embellishChord = curry(
   (
     notesDictionary: NotesDictionary,
     selectionRange: number,
-    randomNotes: string[]
+    randomNotes: ScaleNote[]
   ) => {
     const noteIdentifierNumbers = Object.keys(notesDictionary).map(Number);
     const noteIdentifierLowest = Math.min(...noteIdentifierNumbers);

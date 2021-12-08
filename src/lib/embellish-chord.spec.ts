@@ -4,7 +4,7 @@ import { NotesDictionary } from '../types';
 
 const mockNotesDictionary: NotesDictionary = {
   '48': 100,
-  '72': 100,
+  '84': 100,
 };
 
 const mockSelectionRange = 12;
@@ -14,7 +14,7 @@ describe('embellishChord', () => {
     jest.clearAllMocks();
   });
 
-  it('should add note identifiers for C to notesDictionary that are lower than the lowest input note identifier (48) and higher than the highest note identifier (72)', () => {
+  it('should add note identifiers for C to notesDictionary that are lower than the lowest input note identifier (48) and higher than the highest note identifier (84)', () => {
     const getPotentialNoteIdentifiersSpy = jest.spyOn(
       embellishChord,
       'getPotentialNoteIdentifiers'
@@ -36,7 +36,7 @@ describe('embellishChord', () => {
         equal(
           {
             ...mockNotesDictionary,
-            '84': 100,
+            '96': 100,
           },
           output
         ) ||
@@ -44,7 +44,7 @@ describe('embellishChord', () => {
           {
             ...mockNotesDictionary,
             '36': 100,
-            '84': 100,
+            '96': 100,
           },
           output
         )

@@ -58,6 +58,18 @@ const NOTE_IDENTIFIER_MAP: { [noteIdentifier: string]: string } = {
   '82': 'A#',
   '83': 'B',
   '84': 'C',
+  '85': 'C#',
+  '86': 'D',
+  '87': 'D#',
+  '88': 'E',
+  '89': 'F',
+  '90': 'F#',
+  '91': 'G',
+  '92': 'G#',
+  '93': 'A',
+  '94': 'A#',
+  '95': 'B',
+  '96': 'C',
 };
 
 export { SCALES, NOTE_IDENTIFIER_MAP };
