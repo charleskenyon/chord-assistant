@@ -6,4 +6,4 @@ declare let outlets: number;
 
 declare const post: (log: string) => void;
 
-declare const outlet: (outlet: number, ...output: number[]) => void;
+declare const outlet: (outlet: number, output: number[]) => void;

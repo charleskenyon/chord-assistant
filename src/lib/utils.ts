@@ -4,4 +4,7 @@ const getRandomIndexBetweenZeroAndN = (n: number) =>
 const getAverage = (arr: number[] | string[]) =>
   arr.map(Number).reduce((prev, curr) => prev + curr) / arr.length;
 
-export { getRandomIndexBetweenZeroAndN, getAverage };
+const getMaxGlobalVar = <T>(fallback: T, globalVar: string): T =>
+  eval(`typeof ${globalVar} !== 'undefined'`) ? eval(globalVar) : fallback;
+
+export { getRandomIndexBetweenZeroAndN, getAverage, getMaxGlobalVar };

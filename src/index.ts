@@ -6,29 +6,20 @@ import {
   formatInput,
   generateRandomNotes,
   embellishChord,
+  getMaxGlobalVar,
   postOutputToMax,
 } from './lib';
 import { NotesDictionary } from './types';
-
-inlets = 1;
-outlets = 1;
-let maxAddedNotes = 2;
-
-// setmaxaddednotes will be called externally by Max
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function setmaxaddednotes(value: number) {
-  maxAddedNotes = value;
-}
+import './polyfills';
 
 // list will be called externally by Max e.g. list(60, 100, 63, 90, 67, 80);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function list(...input: number[]) {
+const list = (...input: number[]) => {
   return pipe(
     formatInput,
     (notesDictionary: NotesDictionary) => {
       const noteIdentifiers = Object.keys(notesDictionary);
       return pipe(
-        generateRandomNotes(maxAddedNotes) as (
+        generateRandomNotes(getMaxGlobalVar(2, 'maxAddedNotes')) as (
           noteIdentifiers: string[]
         ) => string[],
         embellishChord(notesDictionary)
@@ -39,4 +30,8 @@ function list(...input: number[]) {
     map(Number),
     postOutputToMax
   )(input);
-}
+};
+
+list(60, 100, 63, 100, 67, 90);
+
+export default list;

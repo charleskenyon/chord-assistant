@@ -1,7 +1,8 @@
-// swallow reference error - outlet and post exist in lexical scope when bundle is run
-export default function postOutputToMax(output: number[]) {
-  try {
-    post(output.toString());
-    outlet(0, ...output);
-  } catch (e) {}
+import { getMaxGlobalVar } from './utils';
+import { NoteTuple } from '../types';
+
+// outlet and post supplied by Max JS object and exist in global namespace at runtime
+export default function postOutputToMax(output: NoteTuple) {
+  getMaxGlobalVar(console.log, 'post')(output.toString());
+  getMaxGlobalVar((...args: any[]) => {}, 'outlet')(0, output);
 }

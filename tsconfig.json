@@ -16,5 +16,5 @@
       "noFallthroughCasesInSwitch": false,
       "skipLibCheck": true,
       "noImplicitUseStrict": true,
-  }
+  },
 }

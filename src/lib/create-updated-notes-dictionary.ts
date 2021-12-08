@@ -11,7 +11,9 @@ export const pickRandomVelocityFromVelocityRange = (
 
 const createUpdatedNotesDictionary = curry(
   (notesDictionary: NotesDictionary, newNoteIdentifiers: string[]) => {
-    const noteVelocities = Object.values(notesDictionary);
+    const noteVelocities = Object.keys(notesDictionary).map(
+      (key) => notesDictionary[key]
+    );
     return newNoteIdentifiers.reduce(
       (prev, curr) => ({
         ...prev,

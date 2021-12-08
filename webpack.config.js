@@ -14,22 +14,26 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          mangle: false,
-          keep_fnames: true
-        }
-      })
-    ],
-  },
+  // optimization: {
+  //   minimize: true,
+  //   minimizer: [
+  //     new TerserPlugin({
+  //       terserOptions: {
+  //         mangle: false,
+  //         keep_fnames: true
+  //       }
+  //     })
+  //   ],
+  // },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'chord-assistant.js',
     path: path.resolve(__dirname, 'dist'),
+    library: {
+      name: 'list',
+      type: 'var',
+      export: 'default',
+    },
   },
 };
