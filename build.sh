@@ -14,5 +14,7 @@ tsc --outFile ./dist/max-globals.js ./src/max-globals.ts ./typings/index.d.ts ||
 es-check es3 "./dist/**/*.js" || post_and_exit "test es3 failed"
 
 cd "$(dirname $0)/dist"
+
 cat max-globals.js main.js > chord-assistant.js
+
 rm max-globals.js main.js 

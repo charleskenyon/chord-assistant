@@ -24,7 +24,6 @@ describe('embellishChord', () => {
       mockSelectionRange,
       ['C']
     );
-    console.log(output);
     expect(
       equal(
         {
