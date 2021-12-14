@@ -14,9 +14,9 @@ const filterNoteIdentifiers = curry(
       .filter(
         (noteIdentifier: number) =>
           (noteIdentifier >= lowestPossibleIdentifier &&
-            noteIdentifier < noteIdentifierLowest) ||
+            noteIdentifier < noteIdentifierLowest - 1) ||
           (noteIdentifier <= hightestPossibleIdentifier &&
-            noteIdentifier > noteIdentifierHighest)
+            noteIdentifier > noteIdentifierHighest + 1)
       )
       .map(String);
   }
