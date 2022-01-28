@@ -2,12 +2,17 @@ import { ScaleNote } from './types';
 
 const SCALES: readonly ScaleNote[][] = [
   ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
-  ['C', 'D', 'D#', 'F', 'G', 'A', 'A#'],
-  ['C', 'C#', 'D#', 'F', 'G', 'G#', 'A#'],
-  ['C', 'D', 'E', 'F#', 'G', 'A', 'B'],
-  ['C', 'D', 'E', 'F', 'G', 'A', 'A#'],
-  ['C', 'D', 'D#', 'F', 'G', 'G#', 'A#'],
-  ['C', 'C#', 'D#', 'F', 'F#', 'G#', 'A#'],
+  ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C'],
+  ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
+  ['D#', 'F', 'G', 'G#', 'A#', 'C', 'D'],
+  ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
+  ['F', 'G', 'A', 'A#', 'C', 'D', 'E'],
+  ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F'],
+  ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
+  ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G'],
+  ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+  ['A#', 'C', 'D', 'D#', 'F', 'G', 'A'],
+  ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'],
 ];
 
 const NOTE_IDENTIFIER_MAP: { readonly [noteIdentifier: string]: ScaleNote } = {
